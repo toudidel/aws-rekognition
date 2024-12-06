@@ -1,0 +1,9 @@
+spring:
+  application:
+    name: aws-rekognition
+
+cloud:
+  aws:
+    credentials:
+      access-key: foo
+      secret-key: bar
