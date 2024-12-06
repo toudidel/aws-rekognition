@@ -5,4 +5,6 @@ import java.util.List;
 public interface PhotosService {
 
   List<AwsDetectTextResponse> detectText(String filename);
+
+  AwsDetectTextResponse detectOneText(String filename);
 }

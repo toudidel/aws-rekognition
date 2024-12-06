@@ -18,4 +18,9 @@ public class PhotosController {
   public ResponseEntity<List<AwsDetectTextResponse>> detectText(@PathVariable String filename) {
     return ResponseEntity.ok(photosService.detectText(filename));
   }
+
+  @GetMapping("/recognize/{filename}/top")
+  public ResponseEntity<AwsDetectTextResponse> detectOneText(@PathVariable String filename) {
+    return ResponseEntity.ok(photosService.detectOneText(filename));
+  }
 }

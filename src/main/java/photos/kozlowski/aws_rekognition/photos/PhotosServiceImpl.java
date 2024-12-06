@@ -3,6 +3,7 @@ package photos.kozlowski.aws_rekognition.photos;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
+import java.util.Comparator;
 import java.util.List;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
@@ -57,5 +58,17 @@ public class PhotosServiceImpl implements PhotosService {
       log.error(e.getMessage(), e);
       throw new RuntimeException(e);
     }
+  }
+
+  @Override
+  public AwsDetectTextResponse detectOneText(String filename) {
+    List<AwsDetectTextResponse> detectedText = detectText(filename);
+    return detectedText.stream()
+        .filter(
+            text ->
+                text.getDetectedText().matches("\\d+") && text.getConfidence().compareTo(95f) > 0)
+        .sorted(Comparator.comparingDouble(AwsDetectTextResponse::getConfidence).reversed())
+        .findFirst()
+        .orElse(AwsDetectTextResponse.builder().build());
   }
 }
