@@ -22,3 +22,11 @@
 # virtual machine crash logs, see http://www.java.com/en/download/help/error_hotspot.xml
 hs_err_pid*
 replay_pid*
+/.idea/aws-rekognition.iml
+/.idea/shelf/Changes.xml
+/.idea/GitLink.xml
+/.idea/google-java-format.xml
+/.idea/misc.xml
+/.idea/modules.xml
+/.idea/shelf/Changes/shelved.patch
+/.idea/workspace.xml
